@@ -1,0 +1,10 @@
+# Netlify configuration (free plan allows commercial sites).
+# Netlify detects Next.js automatically and uses its official Next.js runtime;
+# this file only pins the build command and Node version.
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NEXT_TELEMETRY_DISABLED = "1"

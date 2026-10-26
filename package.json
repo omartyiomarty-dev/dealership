@@ -1,0 +1,50 @@
+{
+  "name": "vehicle-dealership",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio",
+    "admin:create": "node scripts/create-admin.mjs",
+    "admin:reset-password": "node scripts/reset-admin-password.mjs",
+    "test:e2e": "node tests/e2e.mjs",
+    "test:load": "node tests/load.mjs",
+    "test:unit": "node --experimental-strip-types --import ./tests/register-alias.mjs tests/unit.test.mjs",
+    "test": "npm run test:unit && npm run typecheck && npm run lint",
+    "serve": "bash scripts/serve.sh",
+    "healthcheck": "bash scripts/healthcheck.sh",
+    "db:sql": "drizzle-kit export > db/schema.sql.tmp && node -e \"const fs=require('fs');const sql=fs.readFileSync('db/schema.sql.tmp','utf8');fs.writeFileSync('src/db/bootstrap-sql.ts','/* AUTO-GENERATED from src/db/schema.ts via drizzle-kit export. Regenerate with: npm run db:sql */\\nexport const SCHEMA_SQL = '+JSON.stringify(sql)+';\\n');fs.writeFileSync('db/schema.sql','-- Full schema. OPTIONAL: the app creates it automatically on an empty database.\\n'+sql);fs.unlinkSync('db/schema.sql.tmp')\""
+  },
+  "dependencies": {
+    "dotenv": "17.3.1",
+    "drizzle-orm": "0.45.2",
+    "next": "^16.4.3",
+    "pg": "8.20.0",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "sharp": "^0.35.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.1.17",
+    "@types/node": "22.19.15",
+    "@types/pg": "8.18.0",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "drizzle-kit": "0.31.10",
+    "eslint": "9.39.4",
+    "eslint-config-next": "^16.4.3",
+    "postcss": "8.5.8",
+    "tailwindcss": "4.1.17",
+    "typescript": "5.9.3"
+  },
+  "version": "1.0.0",
+  "description": "Bilingual (Arabic RTL / English) vehicle dealership platform with admin dashboard, sales & rentals, and an interactive vehicle finder.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.9.0"
+  }
+}

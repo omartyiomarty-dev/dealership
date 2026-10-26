@@ -1,0 +1,6 @@
+# Dynamic robots are served from /robots.txt by the app (reads the site URL from settings).
+# This file is a safe fallback for static hosts.
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api/

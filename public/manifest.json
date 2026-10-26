@@ -1,0 +1,9 @@
+{
+  "name": "Vehicle Dealership",
+  "short_name": "Dealership",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#137a39",
+  "icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}
